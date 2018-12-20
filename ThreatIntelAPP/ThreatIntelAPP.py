@@ -8,6 +8,7 @@ from consolemenu import *
 from consolemenu.items import * 
 from OTXv2 import OTXv2
 import argparse
+import socket
 
 
 #Super Bone simple CLI interface. The point is to get data.
@@ -24,24 +25,32 @@ OTX_Key = input("Please enter your OTX Key")
 
 #Create menu
 #Creates the header menu
-menu = ConsoleMenu("Threat Intelligence Application", "Main Menu")
-menu_Item_1 = MenuItem("IP address Search")
+def Main_Menu():
+    print(30 * "-", "Threat Intel API" , 30 * "-")
+    print("1. IP address Lookup")
+    print("2. Domain Lookup")
+    print("3. API Key Change")
+    print("4. Exit")
+loop = True
 
-#Creating the specific fucntion
-function_item_1 = FunctionItem("Looking up all information available about this IP")
+while loop:
+    Main_Menu()
+    choice = input("Select a choice [1-4]: ")
 
-#Checking the domain for relevent information 
-menu_Item_2 = MenuItem("Domain Research")
+    if choice == 1:
+        def IP_Lookup():
+            pring("IP Lookup")
 
-#Creating the second fuction
-function_item_2 = FunctionItem("Domain Search")
 
-menu.append_item(menu_Item_1)
-menu.append_item(function_item_1)
-menu.append_item(menu_Item_2)
-menu.append_item(function_item_2)
+    if choice == 2:
+        def Domain_Lookup():
+            print("Domain Lookup: ")
+            
+            domain1 = input("Please enter the domain to search. This will take a while: ")
+            rsv_domain = socket.gethostbyname(domain1)
+            print(rsv_domain)
 
-menu.show()
 
-def IP_Lookup():
+
+    
 
