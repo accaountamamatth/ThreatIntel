@@ -49,6 +49,16 @@ while loop:
             domain1 = input("Please enter the domain to search. This will take a while: ")
             rsv_domain = socket.gethostbyname(domain1)
             print(rsv_domain)
+
+            #VT Domain Scanner
+            url = 'https://www.virustotal/vtapi/v2/url/scan'
+            params = {'apikey': VT_Key, 'url': domain1}
+
+            try:
+                r = requests.post(url, params=params)
+            except requests.ConnectTimeout as timeout:
+                print()
+
         domain_Lookup()
 
     if choice == 3:
