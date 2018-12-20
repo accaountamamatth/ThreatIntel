@@ -39,7 +39,7 @@ while loop:
 
     if choice == 1:
         def IP_Lookup():
-            pring("IP Lookup")
+            print("IP Lookup")
 
 
     if choice == 2:
@@ -49,6 +49,15 @@ while loop:
             domain1 = input("Please enter the domain to search. This will take a while: ")
             rsv_domain = socket.gethostbyname(domain1)
             print(rsv_domain)
+        domain_Lookup()
+
+    if choice == 3:
+        def API_Key_Change():
+            print("Please enter your API Keys for the following Intel Sources: ")
+            Hybrid_Key = input("Please enter your Hybrid Analysis Key: ")
+            Hybrid_Key_Secret = input("Please enter your new Hybrid Analysis Secret: ")
+            OTX_Key = input("Please enter your new OTX key: ")
+            VT_Key = input("Please enter your new VT key: ")
 
 
 
